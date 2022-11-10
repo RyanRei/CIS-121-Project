@@ -1,3 +1,8 @@
 import pandas as pd
-read_excel = pd.read_excel("test2.xlsx")
-read_excel
+file = pd.read_excel("CarData.xlsx")
+dict={}
+for i in range(23):
+    dict[file.iloc[i,0]]= i
+print(dict)
+print(file.iloc[dict["Iowa"]])
+
