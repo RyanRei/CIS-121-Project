@@ -1,0 +1,21 @@
+import pandas as pd
+from openpyxl import Workbook, load_workbook
+wb = load_workbook("CarData.xlsx")
+ws = wb.active
+file = pd.read_excel("CarData.xlsx")
+
+
+
+def print_rows():    
+    for row in ws.iter_rows(values_only=True):
+        print(row)
+
+def insert_row(a,b):
+    ws.insert_rows(idx=a, amount=b )
+
+
+start_num = int(input('Enter where you want to add a new row: '))
+num_of_rows = int(input('Enter where you want to add a new row: '))
+insert_row(start_num,num_of_rows)
+print_rows()
+wb.save('NewCarData.xlsx')
