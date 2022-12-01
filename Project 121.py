@@ -14,7 +14,7 @@ file
 # In[24]:
 
 dict2 = {1:"A", 2:"B", 3: "C", 4:"D", 5 : "E", 6 : "F", 7 : "G"}
-#Created a dictionary to store all the states
+#Created a dictionary to store all the states and a dict to track what row each state is in the excel file
 dict_states={}
 dict_statenum={}
 for i in range(23):       
