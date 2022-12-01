@@ -64,6 +64,48 @@ def Hi(x):
     category=ws[str(dict2[x])+"1"].value
     print("The highest number in the category: ",category," is:",Highest," which belongs to: ",state)
 
+    
+def Lo(x):
+    b=0
+    CurrentRow=0
+    Row=0
+    Highest=99999
+    for i in ws.iter_rows(min_row = 2,
+                         max_row = 24,
+                         min_col=x,
+                         max_col=x,
+                         values_only=True):
+         #makes string of the value in cell by default iter_rows outputs cell calue fo 12.6 as (12.6,)
+        L=str(i)
+        #num is a string that will be used to store the cell value with out the added () and , 
+        num=""
+        #strips cell value of everything other then the number
+        num=""
+        for n in L:
+            try: 
+                thing2=int(n)
+                num=num+n
+                #print(thing)
+
+            except ValueError:
+                if n == ".":
+                    num=num+n
+                    #print(thing)
+                pass
+        if num== "":
+            num="999"
+        #coverts num into float so it can be compared with >
+        num=float(num)
+        #checks if new number is higher
+        if Highest > num:
+            Highest=num
+            Row=CurrentRow
+        CurrentRow+=1
+    state=dict_statenum[Row]
+    category=ws[str(dict2[x])+"1"].value
+    print("The lowest number in colum: ",category," is:",Highest," which belongs to: ",state)
+    
+    
 for i in range(6):
     Hi(i+2)
     #Lo(i+2)    
